@@ -1,1 +1,797 @@
-1	Initialize Smart Pantry Manager project
+
+  // IntelliJ API Decompiler stub source generated from a class file
+  // Implementation of methods is not available
+
+package android.app;
+
+public class Activity extends android.view.ContextThemeWrapper implements android.view.LayoutInflater.Factory2, android.view.Window.Callback, android.view.KeyEvent.Callback, android.view.View.OnCreateContextMenuListener, android.content.ComponentCallbacks2 {
+    public static final int DEFAULT_KEYS_DIALER = 1;
+    public static final int DEFAULT_KEYS_DISABLE = 0;
+    public static final int DEFAULT_KEYS_SEARCH_GLOBAL = 4;
+    public static final int DEFAULT_KEYS_SEARCH_LOCAL = 3;
+    public static final int DEFAULT_KEYS_SHORTCUT = 2;
+    protected static final int[] FOCUSED_STATE_SET;
+    public static final int FULLSCREEN_MODE_REQUEST_ENTER = 1;
+    public static final int FULLSCREEN_MODE_REQUEST_EXIT = 0;
+    public static final int OVERRIDE_TRANSITION_CLOSE = 1;
+    public static final int OVERRIDE_TRANSITION_OPEN = 0;
+    public static final int RESULT_CANCELED = 0;
+    public static final int RESULT_FIRST_USER = 1;
+    public static final int RESULT_OK = -1;
+
+    public Activity() { /* compiled code */ }
+
+    public android.content.Intent getIntent() { /* compiled code */ }
+
+    public void setIntent(android.content.Intent newIntent) { /* compiled code */ }
+
+    @android.annotation.Nullable
+    public android.app.ComponentCaller getCaller() { /* compiled code */ }
+
+    public void setIntent(@android.annotation.Nullable android.content.Intent newIntent, @android.annotation.Nullable android.app.ComponentCaller newCaller) { /* compiled code */ }
+
+    public void setLocusContext(@android.annotation.Nullable android.content.LocusId locusId, @android.annotation.Nullable android.os.Bundle bundle) { /* compiled code */ }
+
+    public final android.app.Application getApplication() { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public final boolean isChild() { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public final android.app.Activity getParent() { /* compiled code */ }
+
+    public android.view.WindowManager getWindowManager() { /* compiled code */ }
+
+    public android.view.Window getWindow() { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public android.app.LoaderManager getLoaderManager() { /* compiled code */ }
+
+    @android.annotation.Nullable
+    public android.view.View getCurrentFocus() { /* compiled code */ }
+
+    protected void attachBaseContext(android.content.Context newBase) { /* compiled code */ }
+
+    public void registerActivityLifecycleCallbacks(@android.annotation.NonNull android.app.Application.ActivityLifecycleCallbacks callback) { /* compiled code */ }
+
+    public void unregisterActivityLifecycleCallbacks(@android.annotation.NonNull android.app.Application.ActivityLifecycleCallbacks callback) { /* compiled code */ }
+
+    public void registerComponentCallbacks(android.content.ComponentCallbacks callback) { /* compiled code */ }
+
+    public void unregisterComponentCallbacks(android.content.ComponentCallbacks callback) { /* compiled code */ }
+
+    protected void onCreate(@android.annotation.Nullable android.os.Bundle savedInstanceState) { /* compiled code */ }
+
+    @android.annotation.NonNull
+    public final android.window.SplashScreen getSplashScreen() { /* compiled code */ }
+
+    public void onCreate(@android.annotation.Nullable android.os.Bundle savedInstanceState, @android.annotation.Nullable android.os.PersistableBundle persistentState) { /* compiled code */ }
+
+    protected void onRestoreInstanceState(@android.annotation.NonNull android.os.Bundle savedInstanceState) { /* compiled code */ }
+
+    public void onRestoreInstanceState(@android.annotation.Nullable android.os.Bundle savedInstanceState, @android.annotation.Nullable android.os.PersistableBundle persistentState) { /* compiled code */ }
+
+    protected void onPostCreate(@android.annotation.Nullable android.os.Bundle savedInstanceState) { /* compiled code */ }
+
+    public void onPostCreate(@android.annotation.Nullable android.os.Bundle savedInstanceState, @android.annotation.Nullable android.os.PersistableBundle persistentState) { /* compiled code */ }
+
+    protected void onStart() { /* compiled code */ }
+
+    protected void onRestart() { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void onStateNotSaved() { /* compiled code */ }
+
+    protected void onResume() { /* compiled code */ }
+
+    protected void onPostResume() { /* compiled code */ }
+
+    public void onTopResumedActivityChanged(boolean isTopResumedActivity) { /* compiled code */ }
+
+    public boolean isVoiceInteraction() { /* compiled code */ }
+
+    public boolean isVoiceInteractionRoot() { /* compiled code */ }
+
+    public android.app.VoiceInteractor getVoiceInteractor() { /* compiled code */ }
+
+    public boolean isLocalVoiceInteractionSupported() { /* compiled code */ }
+
+    public void startLocalVoiceInteraction(android.os.Bundle privateOptions) { /* compiled code */ }
+
+    public void onLocalVoiceInteractionStarted() { /* compiled code */ }
+
+    public void onLocalVoiceInteractionStopped() { /* compiled code */ }
+
+    public void stopLocalVoiceInteraction() { /* compiled code */ }
+
+    protected void onNewIntent(android.content.Intent intent) { /* compiled code */ }
+
+    public void onNewIntent(@android.annotation.NonNull android.content.Intent intent, @android.annotation.NonNull android.app.ComponentCaller caller) { /* compiled code */ }
+
+    protected void onSaveInstanceState(@android.annotation.NonNull android.os.Bundle outState) { /* compiled code */ }
+
+    public void onSaveInstanceState(@android.annotation.NonNull android.os.Bundle outState, @android.annotation.NonNull android.os.PersistableBundle outPersistentState) { /* compiled code */ }
+
+    protected void onPause() { /* compiled code */ }
+
+    protected void onUserLeaveHint() { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public boolean onCreateThumbnail(android.graphics.Bitmap outBitmap, android.graphics.Canvas canvas) { /* compiled code */ }
+
+    @android.annotation.Nullable
+    public java.lang.CharSequence onCreateDescription() { /* compiled code */ }
+
+    public void onProvideAssistData(android.os.Bundle data) { /* compiled code */ }
+
+    public void onProvideAssistContent(android.app.assist.AssistContent outContent) { /* compiled code */ }
+
+    public void onGetDirectActions(@android.annotation.NonNull android.os.CancellationSignal cancellationSignal, @android.annotation.NonNull java.util.function.Consumer<java.util.List<android.app.DirectAction>> callback) { /* compiled code */ }
+
+    public void onPerformDirectAction(@android.annotation.NonNull java.lang.String actionId, @android.annotation.NonNull android.os.Bundle arguments, @android.annotation.NonNull android.os.CancellationSignal cancellationSignal, @android.annotation.NonNull java.util.function.Consumer<android.os.Bundle> resultListener) { /* compiled code */ }
+
+    public final void requestShowKeyboardShortcuts() { /* compiled code */ }
+
+    public final void dismissKeyboardShortcutsHelper() { /* compiled code */ }
+
+    public void onProvideKeyboardShortcuts(java.util.List<android.view.KeyboardShortcutGroup> data, android.view.Menu menu, int deviceId) { /* compiled code */ }
+
+    public boolean showAssist(android.os.Bundle args) { /* compiled code */ }
+
+    protected void onStop() { /* compiled code */ }
+
+    protected void onDestroy() { /* compiled code */ }
+
+    public void reportFullyDrawn() { /* compiled code */ }
+
+    public void onMultiWindowModeChanged(boolean isInMultiWindowMode, android.content.res.Configuration newConfig) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void onMultiWindowModeChanged(boolean isInMultiWindowMode) { /* compiled code */ }
+
+    public boolean isInMultiWindowMode() { /* compiled code */ }
+
+    public void onPictureInPictureModeChanged(boolean isInPictureInPictureMode, android.content.res.Configuration newConfig) { /* compiled code */ }
+
+    public void onPictureInPictureUiStateChanged(@android.annotation.NonNull android.app.PictureInPictureUiState pipState) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void onPictureInPictureModeChanged(boolean isInPictureInPictureMode) { /* compiled code */ }
+
+    public boolean isInPictureInPictureMode() { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void enterPictureInPictureMode() { /* compiled code */ }
+
+    public boolean enterPictureInPictureMode(@android.annotation.NonNull android.app.PictureInPictureParams params) { /* compiled code */ }
+
+    public void setPictureInPictureParams(@android.annotation.NonNull android.app.PictureInPictureParams params) { /* compiled code */ }
+
+    public int getMaxNumPictureInPictureActions() { /* compiled code */ }
+
+    public boolean onPictureInPictureRequested() { /* compiled code */ }
+
+    public void requestFullscreenMode(int request, @android.annotation.Nullable android.os.OutcomeReceiver<java.lang.Void,java.lang.Throwable> approvalCallback) { /* compiled code */ }
+
+    public void setShouldDockBigOverlays(boolean shouldDockBigOverlays) { /* compiled code */ }
+
+    public boolean shouldDockBigOverlays() { /* compiled code */ }
+
+    public void onConfigurationChanged(@android.annotation.NonNull android.content.res.Configuration newConfig) { /* compiled code */ }
+
+    public int getChangingConfigurations() { /* compiled code */ }
+
+    @android.annotation.Nullable
+    public java.lang.Object getLastNonConfigurationInstance() { /* compiled code */ }
+
+    public java.lang.Object onRetainNonConfigurationInstance() { /* compiled code */ }
+
+    public void onLowMemory() { /* compiled code */ }
+
+    public void onTrimMemory(int level) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public android.app.FragmentManager getFragmentManager() { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void onAttachFragment(android.app.Fragment fragment) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public final android.database.Cursor managedQuery(android.net.Uri uri, java.lang.String[] projection, java.lang.String selection, java.lang.String[] selectionArgs, java.lang.String sortOrder) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void startManagingCursor(android.database.Cursor c) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void stopManagingCursor(android.database.Cursor c) { /* compiled code */ }
+
+    public <T extends android.view.View> T findViewById(int id) { /* compiled code */ }
+
+    @android.annotation.NonNull
+    public final <T extends android.view.View> T requireViewById(int id) { /* compiled code */ }
+
+    @android.annotation.Nullable
+    public android.app.ActionBar getActionBar() { /* compiled code */ }
+
+    public void setActionBar(@android.annotation.Nullable android.widget.Toolbar toolbar) { /* compiled code */ }
+
+    public void setContentView(int layoutResID) { /* compiled code */ }
+
+    public void setContentView(android.view.View view) { /* compiled code */ }
+
+    public void setContentView(android.view.View view, android.view.ViewGroup.LayoutParams params) { /* compiled code */ }
+
+    public void addContentView(android.view.View view, android.view.ViewGroup.LayoutParams params) { /* compiled code */ }
+
+    public android.transition.TransitionManager getContentTransitionManager() { /* compiled code */ }
+
+    public void setContentTransitionManager(android.transition.TransitionManager tm) { /* compiled code */ }
+
+    public android.transition.Scene getContentScene() { /* compiled code */ }
+
+    public void setFinishOnTouchOutside(boolean finish) { /* compiled code */ }
+
+    public final void setDefaultKeyMode(int mode) { /* compiled code */ }
+
+    public boolean onKeyDown(int keyCode, android.view.KeyEvent event) { /* compiled code */ }
+
+    public boolean onKeyLongPress(int keyCode, android.view.KeyEvent event) { /* compiled code */ }
+
+    public boolean onKeyUp(int keyCode, android.view.KeyEvent event) { /* compiled code */ }
+
+    public boolean onKeyMultiple(int keyCode, int repeatCount, android.view.KeyEvent event) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void onBackPressed() { /* compiled code */ }
+
+    public boolean onKeyShortcut(int keyCode, android.view.KeyEvent event) { /* compiled code */ }
+
+    public boolean onTouchEvent(android.view.MotionEvent event) { /* compiled code */ }
+
+    public boolean onTrackballEvent(android.view.MotionEvent event) { /* compiled code */ }
+
+    public boolean onGenericMotionEvent(android.view.MotionEvent event) { /* compiled code */ }
+
+    public void onUserInteraction() { /* compiled code */ }
+
+    public void onWindowAttributesChanged(android.view.WindowManager.LayoutParams params) { /* compiled code */ }
+
+    public void onContentChanged() { /* compiled code */ }
+
+    public void onWindowFocusChanged(boolean hasFocus) { /* compiled code */ }
+
+    public void onAttachedToWindow() { /* compiled code */ }
+
+    public void onDetachedFromWindow() { /* compiled code */ }
+
+    public boolean hasWindowFocus() { /* compiled code */ }
+
+    public boolean dispatchKeyEvent(android.view.KeyEvent event) { /* compiled code */ }
+
+    public boolean dispatchKeyShortcutEvent(android.view.KeyEvent event) { /* compiled code */ }
+
+    public boolean dispatchTouchEvent(android.view.MotionEvent ev) { /* compiled code */ }
+
+    public boolean dispatchTrackballEvent(android.view.MotionEvent ev) { /* compiled code */ }
+
+    public boolean dispatchGenericMotionEvent(android.view.MotionEvent ev) { /* compiled code */ }
+
+    public boolean dispatchPopulateAccessibilityEvent(android.view.accessibility.AccessibilityEvent event) { /* compiled code */ }
+
+    @android.annotation.Nullable
+    public android.view.View onCreatePanelView(int featureId) { /* compiled code */ }
+
+    public boolean onCreatePanelMenu(int featureId, @android.annotation.NonNull android.view.Menu menu) { /* compiled code */ }
+
+    public boolean onPreparePanel(int featureId, @android.annotation.Nullable android.view.View view, @android.annotation.NonNull android.view.Menu menu) { /* compiled code */ }
+
+    public boolean onMenuOpened(int featureId, @android.annotation.NonNull android.view.Menu menu) { /* compiled code */ }
+
+    public boolean onMenuItemSelected(int featureId, @android.annotation.NonNull android.view.MenuItem item) { /* compiled code */ }
+
+    public void onPanelClosed(int featureId, @android.annotation.NonNull android.view.Menu menu) { /* compiled code */ }
+
+    public void invalidateOptionsMenu() { /* compiled code */ }
+
+    public boolean onCreateOptionsMenu(android.view.Menu menu) { /* compiled code */ }
+
+    public boolean onPrepareOptionsMenu(android.view.Menu menu) { /* compiled code */ }
+
+    public boolean onOptionsItemSelected(@android.annotation.NonNull android.view.MenuItem item) { /* compiled code */ }
+
+    public boolean onNavigateUp() { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public boolean onNavigateUpFromChild(android.app.Activity child) { /* compiled code */ }
+
+    public void onCreateNavigateUpTaskStack(android.app.TaskStackBuilder builder) { /* compiled code */ }
+
+    public void onPrepareNavigateUpTaskStack(android.app.TaskStackBuilder builder) { /* compiled code */ }
+
+    public void onOptionsMenuClosed(android.view.Menu menu) { /* compiled code */ }
+
+    public void openOptionsMenu() { /* compiled code */ }
+
+    public void closeOptionsMenu() { /* compiled code */ }
+
+    public void onCreateContextMenu(android.view.ContextMenu menu, android.view.View v, android.view.ContextMenu.ContextMenuInfo menuInfo) { /* compiled code */ }
+
+    public void registerForContextMenu(android.view.View view) { /* compiled code */ }
+
+    public void unregisterForContextMenu(android.view.View view) { /* compiled code */ }
+
+    public void openContextMenu(android.view.View view) { /* compiled code */ }
+
+    public void closeContextMenu() { /* compiled code */ }
+
+    public boolean onContextItemSelected(@android.annotation.NonNull android.view.MenuItem item) { /* compiled code */ }
+
+    public void onContextMenuClosed(@android.annotation.NonNull android.view.Menu menu) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    protected android.app.Dialog onCreateDialog(int id) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    @android.annotation.Nullable
+    protected android.app.Dialog onCreateDialog(int id, android.os.Bundle args) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    protected void onPrepareDialog(int id, android.app.Dialog dialog) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    protected void onPrepareDialog(int id, android.app.Dialog dialog, android.os.Bundle args) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public final void showDialog(int id) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public final boolean showDialog(int id, android.os.Bundle args) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public final void dismissDialog(int id) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public final void removeDialog(int id) { /* compiled code */ }
+
+    public boolean onSearchRequested(@android.annotation.Nullable android.view.SearchEvent searchEvent) { /* compiled code */ }
+
+    public boolean onSearchRequested() { /* compiled code */ }
+
+    public final android.view.SearchEvent getSearchEvent() { /* compiled code */ }
+
+    public void startSearch(@android.annotation.Nullable java.lang.String initialQuery, boolean selectInitialQuery, @android.annotation.Nullable android.os.Bundle appSearchData, boolean globalSearch) { /* compiled code */ }
+
+    public void triggerSearch(java.lang.String query, @android.annotation.Nullable android.os.Bundle appSearchData) { /* compiled code */ }
+
+    public void takeKeyEvents(boolean get) { /* compiled code */ }
+
+    public final boolean requestWindowFeature(int featureId) { /* compiled code */ }
+
+    public final void setFeatureDrawableResource(int featureId, int resId) { /* compiled code */ }
+
+    public final void setFeatureDrawableUri(int featureId, android.net.Uri uri) { /* compiled code */ }
+
+    public final void setFeatureDrawable(int featureId, android.graphics.drawable.Drawable drawable) { /* compiled code */ }
+
+    public final void setFeatureDrawableAlpha(int featureId, int alpha) { /* compiled code */ }
+
+    @android.annotation.NonNull
+    public android.view.LayoutInflater getLayoutInflater() { /* compiled code */ }
+
+    @android.annotation.NonNull
+    public android.view.MenuInflater getMenuInflater() { /* compiled code */ }
+
+    public void setTheme(int resid) { /* compiled code */ }
+
+    protected void onApplyThemeResource(android.content.res.Resources.Theme theme, int resid, boolean first) { /* compiled code */ }
+
+    public final void requestPermissions(@android.annotation.NonNull java.lang.String[] permissions, int requestCode) { /* compiled code */ }
+
+    public final void requestPermissions(@android.annotation.NonNull java.lang.String[] permissions, int requestCode, int deviceId) { /* compiled code */ }
+
+    public void onRequestPermissionsResult(int requestCode, @android.annotation.NonNull java.lang.String[] permissions, @android.annotation.NonNull int[] grantResults) { /* compiled code */ }
+
+    public void onRequestPermissionsResult(int requestCode, @android.annotation.NonNull java.lang.String[] permissions, @android.annotation.NonNull int[] grantResults, int deviceId) { /* compiled code */ }
+
+    public boolean shouldShowRequestPermissionRationale(@android.annotation.NonNull java.lang.String permission) { /* compiled code */ }
+
+    public boolean shouldShowRequestPermissionRationale(@android.annotation.NonNull java.lang.String permission, int deviceId) { /* compiled code */ }
+
+    public void startActivityForResult(android.content.Intent intent, int requestCode) { /* compiled code */ }
+
+    public void startActivityForResult(android.content.Intent intent, int requestCode, @android.annotation.Nullable android.os.Bundle options) { /* compiled code */ }
+
+    public boolean isActivityTransitionRunning() { /* compiled code */ }
+
+    public void startIntentSenderForResult(android.content.IntentSender intent, int requestCode, @android.annotation.Nullable android.content.Intent fillInIntent, int flagsMask, int flagsValues, int extraFlags) throws android.content.IntentSender.SendIntentException { /* compiled code */ }
+
+    public void startIntentSenderForResult(android.content.IntentSender intent, int requestCode, @android.annotation.Nullable android.content.Intent fillInIntent, int flagsMask, int flagsValues, int extraFlags, @android.annotation.Nullable android.os.Bundle options) throws android.content.IntentSender.SendIntentException { /* compiled code */ }
+
+    public void startActivity(android.content.Intent intent) { /* compiled code */ }
+
+    public void startActivity(android.content.Intent intent, @android.annotation.Nullable android.os.Bundle options) { /* compiled code */ }
+
+    public void startActivities(android.content.Intent[] intents) { /* compiled code */ }
+
+    public void startActivities(android.content.Intent[] intents, @android.annotation.Nullable android.os.Bundle options) { /* compiled code */ }
+
+    public void startIntentSender(android.content.IntentSender intent, @android.annotation.Nullable android.content.Intent fillInIntent, int flagsMask, int flagsValues, int extraFlags) throws android.content.IntentSender.SendIntentException { /* compiled code */ }
+
+    public void startIntentSender(android.content.IntentSender intent, @android.annotation.Nullable android.content.Intent fillInIntent, int flagsMask, int flagsValues, int extraFlags, @android.annotation.Nullable android.os.Bundle options) throws android.content.IntentSender.SendIntentException { /* compiled code */ }
+
+    public boolean startActivityIfNeeded(@android.annotation.NonNull android.content.Intent intent, int requestCode) { /* compiled code */ }
+
+    public boolean startActivityIfNeeded(@android.annotation.NonNull android.content.Intent intent, int requestCode, @android.annotation.Nullable android.os.Bundle options) { /* compiled code */ }
+
+    public boolean startNextMatchingActivity(@android.annotation.NonNull android.content.Intent intent) { /* compiled code */ }
+
+    public boolean startNextMatchingActivity(@android.annotation.NonNull android.content.Intent intent, @android.annotation.Nullable android.os.Bundle options) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void startActivityFromChild(@android.annotation.NonNull android.app.Activity child, android.content.Intent intent, int requestCode) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void startActivityFromChild(@android.annotation.NonNull android.app.Activity child, android.content.Intent intent, int requestCode, @android.annotation.Nullable android.os.Bundle options) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void startActivityFromFragment(@android.annotation.NonNull android.app.Fragment fragment, android.content.Intent intent, int requestCode) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void startActivityFromFragment(@android.annotation.NonNull android.app.Fragment fragment, android.content.Intent intent, int requestCode, @android.annotation.Nullable android.os.Bundle options) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void startIntentSenderFromChild(android.app.Activity child, android.content.IntentSender intent, int requestCode, android.content.Intent fillInIntent, int flagsMask, int flagsValues, int extraFlags) throws android.content.IntentSender.SendIntentException { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void startIntentSenderFromChild(android.app.Activity child, android.content.IntentSender intent, int requestCode, android.content.Intent fillInIntent, int flagsMask, int flagsValues, int extraFlags, @android.annotation.Nullable android.os.Bundle options) throws android.content.IntentSender.SendIntentException { /* compiled code */ }
+
+    public void overrideActivityTransition(int overrideType, int enterAnim, int exitAnim) { /* compiled code */ }
+
+    public void overrideActivityTransition(int overrideType, int enterAnim, int exitAnim, int backgroundColor) { /* compiled code */ }
+
+    public void clearOverrideActivityTransition(int overrideType) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void overridePendingTransition(int enterAnim, int exitAnim) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void overridePendingTransition(int enterAnim, int exitAnim, int backgroundColor) { /* compiled code */ }
+
+    public final void setResult(int resultCode) { /* compiled code */ }
+
+    public final void setResult(int resultCode, android.content.Intent data) { /* compiled code */ }
+
+    @android.annotation.Nullable
+    public android.net.Uri getReferrer() { /* compiled code */ }
+
+    public android.net.Uri onProvideReferrer() { /* compiled code */ }
+
+    @android.annotation.Nullable
+    public java.lang.String getCallingPackage() { /* compiled code */ }
+
+    @android.annotation.Nullable
+    public android.content.ComponentName getCallingActivity() { /* compiled code */ }
+
+    public int getLaunchedFromUid() { /* compiled code */ }
+
+    @android.annotation.Nullable
+    public java.lang.String getLaunchedFromPackage() { /* compiled code */ }
+
+    @android.annotation.NonNull
+    public android.app.ComponentCaller getInitialCaller() { /* compiled code */ }
+
+    @android.annotation.NonNull
+    public android.app.ComponentCaller getCurrentCaller() { /* compiled code */ }
+
+    public void setVisible(boolean visible) { /* compiled code */ }
+
+    public boolean isFinishing() { /* compiled code */ }
+
+    public boolean isDestroyed() { /* compiled code */ }
+
+    public boolean isChangingConfigurations() { /* compiled code */ }
+
+    public void recreate() { /* compiled code */ }
+
+    public void finish() { /* compiled code */ }
+
+    public void finishAffinity() { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void finishFromChild(android.app.Activity child) { /* compiled code */ }
+
+    public void finishAfterTransition() { /* compiled code */ }
+
+    public void finishActivity(int requestCode) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void finishActivityFromChild(@android.annotation.NonNull android.app.Activity child, int requestCode) { /* compiled code */ }
+
+    public void finishAndRemoveTask() { /* compiled code */ }
+
+    public boolean releaseInstance() { /* compiled code */ }
+
+    protected void onActivityResult(int requestCode, int resultCode, android.content.Intent data) { /* compiled code */ }
+
+    public void onActivityResult(int requestCode, int resultCode, @android.annotation.Nullable android.content.Intent data, @android.annotation.NonNull android.app.ComponentCaller caller) { /* compiled code */ }
+
+    public void onActivityReenter(int resultCode, android.content.Intent data) { /* compiled code */ }
+
+    public android.app.PendingIntent createPendingResult(int requestCode, @android.annotation.NonNull android.content.Intent data, int flags) { /* compiled code */ }
+
+    public void setRequestedOrientation(int requestedOrientation) { /* compiled code */ }
+
+    public int getRequestedOrientation() { /* compiled code */ }
+
+    public int getTaskId() { /* compiled code */ }
+
+    public boolean isTaskRoot() { /* compiled code */ }
+
+    public boolean moveTaskToBack(boolean nonRoot) { /* compiled code */ }
+
+    @android.annotation.NonNull
+    public java.lang.String getLocalClassName() { /* compiled code */ }
+
+    public android.content.ComponentName getComponentName() { /* compiled code */ }
+
+    public android.content.SharedPreferences getPreferences(int mode) { /* compiled code */ }
+
+    public boolean isLaunchedFromBubble() { /* compiled code */ }
+
+    public java.lang.Object getSystemService(@androidx.annotation.RecentlyNonNull java.lang.String name) { /* compiled code */ }
+
+    public void setTitle(java.lang.CharSequence title) { /* compiled code */ }
+
+    public void setTitle(int titleId) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void setTitleColor(int textColor) { /* compiled code */ }
+
+    public final java.lang.CharSequence getTitle() { /* compiled code */ }
+
+    public final int getTitleColor() { /* compiled code */ }
+
+    protected void onTitleChanged(java.lang.CharSequence title, int color) { /* compiled code */ }
+
+    protected void onChildTitleChanged(android.app.Activity childActivity, java.lang.CharSequence title) { /* compiled code */ }
+
+    public void setTaskDescription(android.app.ActivityManager.TaskDescription taskDescription) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public final void setProgressBarVisibility(boolean visible) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public final void setProgressBarIndeterminateVisibility(boolean visible) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public final void setProgressBarIndeterminate(boolean indeterminate) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public final void setProgress(int progress) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public final void setSecondaryProgress(int secondaryProgress) { /* compiled code */ }
+
+    public final void setVolumeControlStream(int streamType) { /* compiled code */ }
+
+    public final int getVolumeControlStream() { /* compiled code */ }
+
+    public final void setMediaController(android.media.session.MediaController controller) { /* compiled code */ }
+
+    public final android.media.session.MediaController getMediaController() { /* compiled code */ }
+
+    public final void runOnUiThread(java.lang.Runnable action) { /* compiled code */ }
+
+    @android.annotation.Nullable
+    public android.view.View onCreateView(@android.annotation.NonNull java.lang.String name, @android.annotation.NonNull android.content.Context context, @android.annotation.NonNull android.util.AttributeSet attrs) { /* compiled code */ }
+
+    @android.annotation.Nullable
+    public android.view.View onCreateView(@android.annotation.Nullable android.view.View parent, @android.annotation.NonNull java.lang.String name, @android.annotation.NonNull android.content.Context context, @android.annotation.NonNull android.util.AttributeSet attrs) { /* compiled code */ }
+
+    public void dump(@android.annotation.NonNull java.lang.String prefix, @android.annotation.Nullable java.io.FileDescriptor fd, @android.annotation.NonNull java.io.PrintWriter writer, @android.annotation.Nullable java.lang.String[] args) { /* compiled code */ }
+
+    public boolean isImmersive() { /* compiled code */ }
+
+    public boolean setTranslucent(boolean translucent) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public boolean requestVisibleBehind(boolean visible) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public void onVisibleBehindCanceled() { /* compiled code */ }
+
+    public void onEnterAnimationComplete() { /* compiled code */ }
+
+    public void setImmersive(boolean i) { /* compiled code */ }
+
+    public void setVrModeEnabled(boolean enabled, @android.annotation.NonNull android.content.ComponentName requestedComponent) throws android.content.pm.PackageManager.NameNotFoundException { /* compiled code */ }
+
+    @android.annotation.Nullable
+    public android.view.ActionMode startActionMode(android.view.ActionMode.Callback callback) { /* compiled code */ }
+
+    @android.annotation.Nullable
+    public android.view.ActionMode startActionMode(android.view.ActionMode.Callback callback, int type) { /* compiled code */ }
+
+    @android.annotation.Nullable
+    public android.view.ActionMode onWindowStartingActionMode(android.view.ActionMode.Callback callback) { /* compiled code */ }
+
+    @android.annotation.Nullable
+    public android.view.ActionMode onWindowStartingActionMode(android.view.ActionMode.Callback callback, int type) { /* compiled code */ }
+
+    public void onActionModeStarted(android.view.ActionMode mode) { /* compiled code */ }
+
+    public void onActionModeFinished(android.view.ActionMode mode) { /* compiled code */ }
+
+    public boolean shouldUpRecreateTask(android.content.Intent targetIntent) { /* compiled code */ }
+
+    public boolean navigateUpTo(android.content.Intent upIntent) { /* compiled code */ }
+
+    /**
+     * @deprecated
+     */
+    @java.lang.Deprecated
+    public boolean navigateUpToFromChild(android.app.Activity child, android.content.Intent upIntent) { /* compiled code */ }
+
+    @android.annotation.Nullable
+    public android.content.Intent getParentActivityIntent() { /* compiled code */ }
+
+    public void setEnterSharedElementCallback(android.app.SharedElementCallback callback) { /* compiled code */ }
+
+    public void setExitSharedElementCallback(android.app.SharedElementCallback callback) { /* compiled code */ }
+
+    public void postponeEnterTransition() { /* compiled code */ }
+
+    public void startPostponedEnterTransition() { /* compiled code */ }
+
+    public android.view.DragAndDropPermissions requestDragAndDropPermissions(android.view.DragEvent event) { /* compiled code */ }
+
+    public void startLockTask() { /* compiled code */ }
+
+    public void stopLockTask() { /* compiled code */ }
+
+    public void showLockTaskEscapeMessage() { /* compiled code */ }
+
+    public void setRecentsScreenshotEnabled(boolean enabled) { /* compiled code */ }
+
+    public void setShowWhenLocked(boolean showWhenLocked) { /* compiled code */ }
+
+    public void setInheritShowWhenLocked(boolean inheritShowWhenLocked) { /* compiled code */ }
+
+    public void setTurnScreenOn(boolean turnScreenOn) { /* compiled code */ }
+
+    public void setAllowCrossUidActivitySwitchFromBelow(boolean allowed) { /* compiled code */ }
+
+    @android.annotation.NonNull
+    public android.window.OnBackInvokedDispatcher getOnBackInvokedDispatcher() { /* compiled code */ }
+
+    public void registerScreenCaptureCallback(@android.annotation.NonNull java.util.concurrent.Executor executor, @android.annotation.NonNull android.app.Activity.ScreenCaptureCallback callback) { /* compiled code */ }
+
+    public void unregisterScreenCaptureCallback(@android.annotation.NonNull android.app.Activity.ScreenCaptureCallback callback) { /* compiled code */ }
+
+    public static interface ScreenCaptureCallback {
+        void onScreenCaptured();
+    }
+}
