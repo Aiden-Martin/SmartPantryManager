@@ -1,1 +1,57 @@
+package com.example.smartpantry;
+
+import android.content.*;
+import android.database.Cursor;
+import android.database.sqlite.*;
+import java.util.*;
+
+public class DBHelper extends SQLiteOpenHelper {
+    public static final String DB_NAME="smart_pantry.db";
+    public DBHelper(Context c){super(c,DB_NAME,null,1);}
+    @Override public void onCreate(SQLiteDatabase db){
+        db.execSQL("CREATE TABLE pantry(id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT NOT NULL,quantity REAL NOT NULL,unit TEXT NOT NULL,expiry TEXT)");
+        db.execSQL("CREATE TABLE recipes(id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT NOT NULL,steps TEXT NOT NULL)");
+        db.execSQL("CREATE TABLE recipe_ingredients(id INTEGER PRIMARY KEY AUTOINCREMENT,recipe_id INTEGER,name TEXT,quantity REAL,unit TEXT)");
+        seed(db);
+    }
+    @Override public void onUpgrade(SQLiteDatabase db,int oldV,int newV){db.execSQL("DROP TABLE IF EXISTS pantry");db.execSQL("DROP TABLE IF EXISTS recipe_ingredients");db.execSQL("DROP TABLE IF EXISTS recipes");onCreate(db);}
+    private void seed(SQLiteDatabase db){
+        addRecipe(db,"Tomato Omelette","Beat eggs, mix in chopped tomato and salt, then cook in a lightly oiled pan.",new String[]{"egg","tomato","salt"},new double[]{2,1,1},new String[]{"piece","piece","g"});
+        addRecipe(db,"Garlic Tomato Pasta","Boil pasta. Sauté garlic and tomato, combine, and season.",new String[]{"pasta","tomato","garlic","salt"},new double[]{100,2,1,1},new String[]{"g","piece","clove","g"});
+        addRecipe(db,"Cheese Omelette","Beat eggs, add cheese and salt, then cook until set.",new String[]{"egg","cheese","salt"},new double[]{2,30,1},new String[]{"piece","g","g"});
+        addRecipe(db,"Banana Pancakes","Mash banana, whisk with egg and flour, then fry small pancakes.",new String[]{"banana","egg","flour"},new double[]{1,1,50},new String[]{"piece","piece","g"});
+        addRecipe(db,"Simple Fried Rice","Scramble egg, add cooked rice and peas, stir-fry and season.",new String[]{"rice","egg","peas","salt"},new double[]{150,1,50,1},new String[]{"g","piece","g","g"});
+        addRecipe(db,"Garlic Butter Pasta","Cook pasta. Toss with melted butter, garlic and salt.",new String[]{"pasta","butter","garlic","salt"},new double[]{100,15,1,1},new String[]{"g","g","clove","g"});
+        addRecipe(db,"Potato Hash","Dice and pan-fry potato with onion and salt until golden.",new String[]{"potato","onion","salt"},new double[]{2,1,1},new String[]{"piece","piece","g"});
+        addRecipe(db,"Apple Oat Porridge","Cook oats in milk, top with chopped apple.",new String[]{"oats","milk","apple"},new double[]{50,200,1},new String[]{"g","ml","piece"});
+        addRecipe(db,"Cheese Toast","Toast bread, add cheese and grill until melted.",new String[]{"bread","cheese"},new double[]{2,30},new String[]{"slice","g"});
+        addRecipe(db,"Pea Soup","Simmer peas and onion in water until soft, then mash and season.",new String[]{"peas","onion","salt"},new double[]{150,1,1},new String[]{"g","piece","g"});
+        addRecipe(db,"Tomato Cheese Toast","Top bread with tomato and cheese, then grill.",new String[]{"bread","tomato","cheese"},new double[]{2,1,25},new String[]{"slice","piece","g"});
+        addRecipe(db,"Egg Fried Potato","Pan-fry diced potato, add beaten egg and cook through.",new String[]{"potato","egg","salt"},new double[]{1,1,1},new String[]{"piece","piece","g"});
+        addRecipe(db,"Banana Oat Bowl","Slice banana over oats and pour in milk.",new String[]{"banana","oats","milk"},new double[]{1,40,100},new String[]{"piece","g","ml"});
+        addRecipe(db,"Apple Pancakes","Mix flour, egg and chopped apple into batter; pan-fry.",new String[]{"flour","egg","apple"},new double[]{50,1,1},new String[]{"g","piece","piece"});
+        addRecipe(db,"Garlic Peas","Sauté garlic, add peas and a splash of water, then cook until tender.",new String[]{"garlic","peas","salt"},new double[]{1,100,1},new String[]{"clove","g","g"});
+        addRecipe(db,"Buttered Rice","Cook rice and stir through butter and salt.",new String[]{"rice","butter","salt"},new double[]{100,10,1},new String[]{"g","g","g"});
+        addRecipe(db,"Milk Porridge","Cook oats slowly in milk, stirring until creamy.",new String[]{"oats","milk"},new double[]{50,200},new String[]{"g","ml"});
+        addRecipe(db,"Onion Omelette","Beat eggs with onion and salt, then fry until set.",new String[]{"egg","onion","salt"},new double[]{2,1,1},new String[]{"piece","piece","g"});
+        addRecipe(db,"Tomato Rice","Cook rice, simmer tomato with seasoning, and combine.",new String[]{"rice","tomato","salt"},new double[]{100,2,1},new String[]{"g","piece","g"});
+        addRecipe(db,"Cheesy Potato","Boil potato until tender, mash with butter and cheese.",new String[]{"potato","butter","cheese"},new double[]{2,10,25},new String[]{"piece","g","g"});
+    }
+    private void addRecipe(SQLiteDatabase db,String name,String steps,String[] ingredients,double[] qty,String[] units){
+        ContentValues v=new ContentValues();v.put("name",name);v.put("steps",steps);long id=db.insert("recipes",null,v);
+        for(int i=0;i<ingredients.length;i++){ContentValues x=new ContentValues();x.put("recipe_id",id);x.put("name",ingredients[i]);x.put("quantity",qty[i]);x.put("unit",units[i]);db.insert("recipe_ingredients",null,x);}
+    }
+    public List<PantryItem> getPantry(){List<PantryItem> a=new ArrayList<>();Cursor c=getReadableDatabase().rawQuery("SELECT id,name,quantity,unit,expiry FROM pantry ORDER BY name",null);try{while(c.moveToNext())a.add(new PantryItem(c.getInt(0),c.getString(1),c.getDouble(2),c.getString(3),c.getString(4)));}finally{c.close();}return a;}
+    public long savePantry(int id,String name,double qty,String unit,String expiry){ContentValues v=new ContentValues();v.put("name",name);v.put("quantity",qty);v.put("unit",unit);v.put("expiry",expiry);if(id>0)return getWritableDatabase().update("pantry",v,"id=?",new String[]{String.valueOf(id)});return getWritableDatabase().insert("pantry",null,v);}
+    public void deletePantry(int id){getWritableDatabase().delete("pantry","id=?",new String[]{String.valueOf(id)});}
+    public List<Recipe> getSuggested(){List<Recipe> out=new ArrayList<>();List<PantryItem> pantry=getPantry();Cursor r=getReadableDatabase().rawQuery("SELECT id,name,steps FROM recipes ORDER BY name",null);try{while(r.moveToNext()){Recipe rec=new Recipe(r.getInt(0),r.getString(1),r.getString(2));if(matches(rec.id,pantry))out.add(rec);}}finally{r.close();}return out;}
+    private boolean matches(int recipeId,List<PantryItem> pantry){Cursor c=getReadableDatabase().rawQuery("SELECT name,quantity,unit FROM recipe_ingredients WHERE recipe_id=?",new String[]{String.valueOf(recipeId)});try{while(c.moveToNext()){String wanted=normalize(c.getString(0));double needed=c.getDouble(1);String unit=c.getString(2);double available=0;for(PantryItem p:pantry)if(normalize(p.name).equals(wanted)&&compatible(p.unit,unit)){available+=convert(p.quantity,p.unit,unit);}if(available+1e-9<needed)return false;}return true;}finally{c.close();}}
+    public List<String> getRecipeIngredients(int id){List<String> a=new ArrayList<>();Cursor c=getReadableDatabase().rawQuery("SELECT name,quantity,unit FROM recipe_ingredients WHERE recipe_id=? ORDER BY id",new String[]{String.valueOf(id)});try{while(c.moveToNext())a.add(c.getString(0)+" — "+format(c.getDouble(1))+" "+c.getString(2));}finally{c.close();}return a;}
+    public Recipe getRecipe(int id){Cursor c=getReadableDatabase().rawQuery("SELECT id,name,steps FROM recipes WHERE id=?",new String[]{String.valueOf(id)});try{if(c.moveToFirst())return new Recipe(c.getInt(0),c.getString(1),c.getString(2));return null;}finally{c.close();}}
+    public static String normalize(String s){String x=s==null?"":s.trim().toLowerCase(Locale.ROOT).replaceAll("[^a-z0-9 ]","").replaceAll("\\s+"," ");String[] words=x.split(" ");StringBuilder b=new StringBuilder();for(String w:words){if(w.endsWith("ies")&&w.length()>4)w=w.substring(0,w.length()-3)+"y";else if(w.endsWith("oes")&&w.length()>4)w=w.substring(0,w.length()-2);else if(w.endsWith("s")&&!w.endsWith("ss")&&w.length()>3)w=w.substring(0,w.length()-1);if(b.length()>0)b.append(' ');b.append(w);}return b.toString();}
+    private boolean compatible(String a,String b){return base(a).equals(base(b));}
+    private String base(String u){u=u==null?"":u.trim().toLowerCase(Locale.ROOT);if(u.equals("kg")||u.equals("g"))return "mass";if(u.equals("l")||u.equals("ml"))return "volume";return u;}
+    private double convert(double q,String from,String to){from=from.toLowerCase(Locale.ROOT);to=to.toLowerCase(Locale.ROOT);if(from.equals(to))return q;if(from.equals("kg")&&to.equals("g"))return q*1000;if(from.equals("g")&&to.equals("kg"))return q/1000;if(from.equals("l")&&to.equals("ml"))return q*1000;if(from.equals("ml")&&to.equals("l"))return q/1000;return q;}
+    private String format(double d){return d==(long)d?String.valueOf((long)d):String.valueOf(d);}
+}
 
